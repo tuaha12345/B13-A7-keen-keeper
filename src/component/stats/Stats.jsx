@@ -1,5 +1,5 @@
 import React from "react";
-import { Pie, PieChart, ResponsiveContainer } from "recharts";
+import { Pie, PieChart, ResponsiveContainer,Tooltip } from "recharts";
 import { useContext } from "react";
 import { TimelineContext } from "../../context/TimelineContext";
 
@@ -13,9 +13,9 @@ const Stats = ({ isAnimationActive = true }) => {
     const totalVideo= timeline.filter((item) => item.timelineType === "Video").length;
 
     const data = [
-  { name: "Group A", value: totalText, fill: "#7F37F5" },
-  { name: "Group B", value: totalCall, fill: "#244D3F" },
-  { name: "Group C", value: totalVideo, fill: "#37A163" },
+  { name: "Text", value: totalText, fill: "#7F37F5" },
+  { name: "Call", value: totalCall, fill: "#244D3F" },
+  { name: "Video", value: totalVideo, fill: "#37A163" },
 
 ];
 
@@ -47,6 +47,9 @@ const Stats = ({ isAnimationActive = true }) => {
                 paddingAngle={5}
                 dataKey="value"
                 isAnimationActive={isAnimationActive}
+              />
+              <Tooltip 
+                contentStyle={{ borderRadius: "10px", border: "none", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)" }}
               />
             </PieChart>
           </ResponsiveContainer>

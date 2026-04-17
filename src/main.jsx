@@ -11,6 +11,7 @@ import TimeLine from './component/timeline/TimeLine';
  import { ToastContainer, toast } from 'react-toastify';
  import Stats from './component/stats/Stats';
 import TimeLineType from './component/timeline/TimeLineType.jsx';
+import Page404 from './component/404page/Page404.jsx';
 
 
 const router = createBrowserRouter([
@@ -30,8 +31,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/app",
-    element: <App />,
+    path: "*",
+    element: <Page404></Page404>,
   },
 ]);
 

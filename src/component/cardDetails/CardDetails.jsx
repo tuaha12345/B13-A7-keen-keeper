@@ -1,26 +1,61 @@
-import React from "react";
+import React, { useReducer, useState, useEffect, useContext } from "react";
 import { FiArchive } from "react-icons/fi";
 import { RiNotificationSnoozeLine } from "react-icons/ri";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { LuPhoneCall } from "react-icons/lu";
 import { LuMessageSquareText } from "react-icons/lu";
 import { VscDeviceCameraVideo } from "react-icons/vsc";
+import {  useParams,useLoaderData } from "react-router";
+import { TimelineContext } from "../../context/TimelineContext";
 
 
-const friend = {
-  id: 1,
-  name: "Ahsan Rahman",
-  picture: "https://randomuser.me/api/portraits/men/32.jpg",
-  email: "ahsan.rahman@gmail.com",
-  days_since_contact: 18,
-  status: "Overdue",
-  tags: ["university", "close friend"],
-  bio: "We studied Computer Science together at university. Used to work on projects and late-night coding sessions.",
-  goal: 14,
-  next_due_date: "2026-04-01",
-};
+// const friend = {
+//   id: 1,
+//   name: "Ahsan Rahman",
+//   picture: "https://randomuser.me/api/portraits/men/32.jpg",
+//   email: "ahsan.rahman@gmail.com",
+//   days_since_contact: 18,
+//   status: "Overdue",
+//   tags: ["university", "close friend"],
+//   bio: "We studied Computer Science together at university. Used to work on projects and late-night coding sessions.",
+//   goal: 14,
+//   next_due_date: "2026-04-01",
+// };
 
-const CardDetails = () => {
+const CardDetails = ({params}) => {
+const { timeline, setTimeline } = useContext(TimelineContext);
+
+// console.log('timeline =', timeline);
+
+
+  const [friends, setFriends] = useState([]);
+  useEffect(() => {
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => setFriends(data));
+  },[]);
+  const {friendId}=useParams();
+  const Id=parseInt(friendId);
+  const friend=friends.find(friend=>friend.id===Id);
+  if (!friend) {
+  return ;
+}
+
+const setTimeLine=(friend,timelinetype)=>{
+  const timelineType=timelinetype;
+  const friendName=friend;
+  const time = new Date().toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+  const newTimeline={timelineType,friendName,time};
+  setTimeline([...timeline,newTimeline]);
+}
+
+
+  // console.log(friendX);
+  // console.log(friends);
   return (
     <div className="py-61 px-20 grid  grid-cols-5 grid-rows-3 gap-5">
       <div
@@ -120,15 +155,15 @@ const CardDetails = () => {
 
 
         <div className="grid grid-cols-3 gap-3">
-            <div className="bg-base-200 rounded-xl flex flex-col justify-center items-center py-5 px-5 border border-base-300 gap-2">
+            <div className="bg-base-200 rounded-xl flex flex-col justify-center items-center py-5 px-5 border border-base-300 gap-2 cursor-pointer" onClick={()=>setTimeLine(friend.name,"Call")}>
     <LuPhoneCall className="h-8 w-8 font-bold" />
-    <p  className="text-[18px]">Call</p>
+    <p  className="text-[18px]" >Call</p>
             </div>
-            <div className="bg-base-200 rounded-xl flex flex-col justify-center items-center py-5 px-5 border-base-300 gap-2">
+            <div className="bg-base-200 rounded-xl flex flex-col justify-center items-center py-5 px-5 border-base-300 gap-2 cursor-pointer" onClick={()=>setTimeLine(friend.name,"Text")}>
     <LuMessageSquareText className="h-8 w-8 font-bold"/>
     <p  className="text-[18px]">Text</p>
             </div>
-            <div className="bg-base-200 rounded-xl flex flex-col justify-center items-center py-5 px-5 border-base-300 gap-2">
+            <div className="bg-base-200 rounded-xl flex flex-col justify-center items-center py-5 px-5 border-base-300 gap-2 cursor-pointer" onClick={()=>setTimeLine(friend.name,"Video")}>
     <VscDeviceCameraVideo className="h-8 w-8 font-bold" />
     <p  className="text-[18px]">Video</p>
             </div>

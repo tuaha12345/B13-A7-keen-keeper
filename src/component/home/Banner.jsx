@@ -54,31 +54,18 @@ const Banner = ({friends}) => {
         <h3 className="font-semibold text-2xl">Your Friends</h3>
         {/* cards */}
         <div className="cards grid grid-cols-1 md:grid-cols-4 gap-5 my-5">
-         {friendData.map((fData) => (console.log(fData),
+         {/* {friendData.map((fData) => (console.log(fData),
           <Card key={fData.id} fData={fData}></Card>
-        
-          // <div className="card bg-white p-8 rounded-2xl shadow flex flex-col gap-3" key={friend.id}>
-          //   <img
-          //     src={friend.picture}
-          //     className="border rounded-full w-24 h-24 mx-auto my-5"
-          //   ></img>
-          //   <h3 className="font-semibold text-[20px] text-center">{friend.name}</h3>
-          //   <p className="text-gray-400 text-[13px] text-center">{friend.days_since_contact}d ago</p>
-          //    <div className="flex flex-wrap justify-center gap-2  mx-auto">
-          //     {friend.tags.map((tag,index) => (
-          //       <div key={index}>
-          //         <button className="btn bg-[#DAFBDC] rounded-2xl">{tag}</button>
-          //       </div>
-          //     ))}
-          //   </div>
-          //   <div className="flex flex-wrap justify-center gap-2  mx-auto">
-          //     <div>
-          //       <button className={`btn rounded-2xl text-white ${friend.status==='Overdue'?'bg-[#d32323]':friend.status=='Almost Due'?'bg-[#DCB254]':'bg-[#344d3f]' }`}>{friend.status}</button>
-          //     </div>
-
-          //   </div>
-          // </div>
-         ))}
+         ))} */}
+            
+   {Array.isArray(friendData) && friendData.length > 0 ? (
+     friendData.map((fData) => (
+       console.log(fData),
+       <Card key={fData.id} fData={fData}></Card>
+     ))
+   ) : (
+     <p>Loading friends...</p>
+   )}
 
 
         </div>

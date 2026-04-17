@@ -11,10 +11,10 @@ const Banner = ({friends}) => {
   return (
     <div>
       <div className="text-center mx-auto flex flex-col gap-4 my-5">
-        <h1 className="text-center font-bold text-[48px]">
+        <h1 className="text-center font-bold text-3xl md:text-[48px]">
           Friends to keep close in your life
         </h1>
-        <p className="text-center w-5/12 mx-auto">
+        <p className="text-center md:w-5/12 mx-auto">
           Your personal shelf of meaningful connections. Browse, tend, and
           nurture the relationships that matter most.
         </p>
@@ -25,7 +25,7 @@ const Banner = ({friends}) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-5 my-5">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 my-5">
         <div className="bg-white p-8 rounded-2xl shadow">
           <h3 className="font-semibold text-[32px] text-center">10</h3>
           <p className="text-gray-400 text-[18px] text-center">Total Friends</p>
@@ -64,7 +64,9 @@ const Banner = ({friends}) => {
        <Card key={fData.id} fData={fData}></Card>
      ))
    ) : (
-     <span className="loading loading-spinner loading-xl text-[#344D3F]"></span>
+     <div className="flex justify-center">
+      <span className="loading loading-spinner loading-xl text-[#344D3F] "></span>
+     </div>
    )}
 
 

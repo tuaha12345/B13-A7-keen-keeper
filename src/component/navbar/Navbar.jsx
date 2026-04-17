@@ -24,7 +24,7 @@ const Navbar = () => {
     <div className="navbar bg-[#F9FAFC] shadow-sm px-15 flex flex-col md:flex-row">
       <div className="navbar-start mb-5 md:mb-0">
         <Link to={"/"} >
-        <a className="text-2xl font-bold">Keen<span className="text-[#344D3F]">Keeper</span></a>
+        <p className="text-2xl font-bold">Keen<span className="text-[#344D3F]">Keeper</span></p>
         </Link>
       </div>
       {buttonList}

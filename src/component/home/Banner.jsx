@@ -60,7 +60,7 @@ const Banner = ({friends}) => {
             
    {Array.isArray(friendData) && friendData.length > 0 ? (
      friendData.map((fData) => (
-       console.log(fData),
+      //  console.log(fData),
        <Card key={fData.id} fData={fData}></Card>
      ))
    ) : (

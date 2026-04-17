@@ -7,6 +7,7 @@ import { LuMessageSquareText } from "react-icons/lu";
 import { VscDeviceCameraVideo } from "react-icons/vsc";
 import {  useParams,useLoaderData } from "react-router";
 import { TimelineContext } from "../../context/TimelineContext";
+ import { ToastContainer, toast } from 'react-toastify';
 
 
 // const friend = {
@@ -51,6 +52,7 @@ const setTimeLine=(friend,timelinetype)=>{
   });
   const newTimeline={timelineType,friendName,time};
   setTimeline([...timeline,newTimeline]);
+  toast.success(timelineType+' with '+friendName+' added to timeline successfully');
 }
 
 

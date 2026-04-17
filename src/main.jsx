@@ -10,8 +10,9 @@ import { TimeLineProvider } from './context/TimelineContext';
 import TimeLine from './component/timeline/TimeLine';
  import { ToastContainer, toast } from 'react-toastify';
  import Stats from './component/stats/Stats';
-import TimeLineType from './component/timeline/TimeLineType.jsx';
+// import TimeLineType from './component/timeline/TimeLineType.jsx';
 import Page404 from './component/404page/Page404.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
     Component: Root,
     children: [
       // {index:true,loader: () => fetch('./data.json'), Component:Home},
-      {index:true, loader: () => fetch('/data.json').then(res => res.json()), Component:Home},
+      // {index:true, loader: () => fetch('/data.json').then(res => res.json()), Component:Home},
+      {index:true,Component:Home},
       {path:"/friend/:friendId", Component:CardDetails},
       {path:"/timeline", Component:TimeLine,children:[
         // {index:true, Component:Stats},

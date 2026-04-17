@@ -5,6 +5,12 @@ import { useLoaderData } from 'react-router';
 
 
 const Home = () => {
+    const [friends, setFriends] = useState([]);
+    useEffect(() => {
+        fetch('./data.json')
+        .then(res => res.json())
+        .then(data => setFriends(data))
+    },[]);
     // const [friends, setFriends] = useState([]);
     // useEffect(() => {
     //     fetch('./data.json')
@@ -12,7 +18,9 @@ const Home = () => {
     //     .then(data => setFriends(data))
     // },[]);
     // console.log(friends);
-    const friends=useLoaderData();
+    // const friendsPromise = useLoaderData();
+    // const friends = use(friendsPromise);
+    // const friends=useLoaderData();
     
     
 

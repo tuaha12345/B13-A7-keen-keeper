@@ -64,7 +64,7 @@ const Banner = ({friends}) => {
        <Card key={fData.id} fData={fData}></Card>
      ))
    ) : (
-     <p>Loading friends...</p>
+     <span className="loading loading-spinner loading-xl text-[#344D3F]"></span>
    )}
 
 

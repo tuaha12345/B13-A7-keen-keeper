@@ -13,7 +13,7 @@ const TimeLine = () => {
 
   return (
     <div className="container mx-auto w-11/12 mb-20">
-      <h1 className="text-[48px] font-bold">Timeline </h1>
+      <h1 className="text-3xl my-5 md:text-[48px] font-bold">Timeline </h1>
       <div className="dropdown my-7">
         <div tabIndex={0} role="button" className="btn m-1 text-base-500 flex justify-between  w-65 ">
           <p>Filter timeline</p> <FaChevronDown />

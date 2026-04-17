@@ -59,9 +59,9 @@ const setTimeLine=(friend,timelinetype)=>{
   // console.log(friendX);
   // console.log(friends);
   return (
-    <div className="py-61 px-20 grid  grid-cols-5 grid-rows-3 gap-5">
+    <div className="py-5 px-5 md:py-40 md:px-20 flex flex-col md:grid  md:grid-cols-5 md:grid-rows-3 gap-5">
       <div
-        className="card bg-white p-8 rounded-xl shadow flex flex-col gap-3 col-span-2 row-span-2"
+        className="card bg-white p-8 rounded-xl shadow flex flex-col gap-3 md:col-span-2 md:row-span-2 "
         key={friend.id}
       >
         <img

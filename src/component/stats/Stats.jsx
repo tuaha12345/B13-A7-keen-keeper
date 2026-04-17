@@ -22,7 +22,7 @@ const Stats = ({ isAnimationActive = true }) => {
   return (
     <div className="container mx-auto w-11/12 mb-20 ">
       <div className="my-5">
-        <h1 className="text-[48px] font-bold ">Friendship Analytics</h1>
+        <h1 className="text-3xl md:text-[48px] font-bold ">Friendship Analytics</h1>
       </div>
             { timeline.length===0?<div className="flex gap-3 bg-white p-8 py-50 rounded-xl shadow items-center justify-center">
                 <h1 className="text-[48px] font-bold text-center">No timeline found</h1></div>:
